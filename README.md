@@ -11,24 +11,32 @@ This sample project depends on [boto3](https://aws.amazon.com/sdk-for-python/), 
 
     pip install boto3
 	
-The script also requires that you have CloudTrail data events enabled for all Lambda functions within your AWS account. The following blog [Gain Visibility into the Execution of Your AWS Lambda functions with AWS CloudTrail](https://aws.amazon.com/blogs/mt/gain-visibility-into-the-execution-of-your-aws-lambda-functions-with-aws-cloudtrail/) provides a step-by-step guide.
+The script also requires that you have CloudTrail data events enabled for all Lambda functions within your AWS account. The following blog "[Gain Visibility into the Execution of Your AWS Lambda functions with AWS CloudTrail](https://aws.amazon.com/blogs/mt/gain-visibility-into-the-execution-of-your-aws-lambda-functions-with-aws-cloudtrail/)" provides a step-by-step guide.
 
-## Basic Configuration
+### Basic Configuration
 
-You need to set up your AWS security credentials before the sample code is able
-to connect to AWS. You can do this by creating a file named "credentials" at ~/.aws/ 
-(`C:\Users\USER_NAME\.aws\` for Windows users) and saving the following lines in the file:
+Before you can begin using Boto 3, you should set up authentication credentials. Credentials for your AWS account can be found in the IAM Console. You can create or use an existing user. Go to manage access keys and generate a new set of keys.
 
-    [default]
-    aws_access_key_id = <your access key id>
-    aws_secret_access_key = <your secret key>
+If you have the AWS CLI installed, then you can use it to configure your credentials file:
+
+	aws configure
+
+Alternatively, you can create the credential file yourself. By default, its location is at ~/.aws/credentials (C:\Users\USER_NAME\.aws\credentials for Windows users). Add the following lines in the file:
+
+[default]
+aws_access_key_id = YOUR_ACCESS_KEY
+aws_secret_access_key = YOUR_SECRET_KEY
+
+You also need to set a default region. This can be done in the configuration file. By default, its location is at ~/.aws/config (C:\Users\USER_NAME\.aws\config for Windows users). Add the following lines in the file:
+
+[default]
+region=us-east-1
 
 See the [Security Credentials](http://aws.amazon.com/security-credentials) page
-for more information on getting your keys. For more information on configuring `boto3`,
+for more information on getting your keys. For more information on configuring boto3,
 check out the Quickstart section in the [developer guide](https://boto3.readthedocs.org/en/latest/guide/quickstart.html).
-```
 
-### Configuring the Variables
+### Configuring Script Variables
 
 A step by step series of examples that tell you have to get a development env running
 
