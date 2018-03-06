@@ -11,91 +11,47 @@ This sample project depends on [boto3](https://aws.amazon.com/sdk-for-python/), 
 
     pip install boto3
 	
-The script also requires that you have CloudTrail data events enabled for all Lambda functions within your AWS account. The following blog [Gain Visibility into the Execution of Your AWS Lambda functions with AWS CloudTrail](https://aws.amazon.com/blogs/mt/gain-visibility-into-the-execution-of-your-aws-lambda-functions-with-aws-cloudtrail/) provides a step-by-step guide.
+The script also requires that you have CloudTrail data events enabled for all Lambda functions within your AWS account. The following blog "[Gain Visibility into the Execution of Your AWS Lambda functions with AWS CloudTrail](https://aws.amazon.com/blogs/mt/gain-visibility-into-the-execution-of-your-aws-lambda-functions-with-aws-cloudtrail/)" provides a step-by-step guide.
 
-## Basic Configuration
+### Basic Configuration
 
-You need to set up your AWS security credentials before the sample code is able
-to connect to AWS. You can do this by creating a file named "credentials" at ~/.aws/ 
-(`C:\Users\USER_NAME\.aws\` for Windows users) and saving the following lines in the file:
+Before you can begin using Boto 3, you should set up authentication credentials. Credentials for your AWS account can be found in the IAM Console. You can create or use an existing user. Go to manage access keys and generate a new set of keys.
 
-    [default]
-    aws_access_key_id = <your access key id>
-    aws_secret_access_key = <your secret key>
+If you have the AWS CLI installed, then you can use it to configure your credentials file using the command:
+
+	aws configure
+
+Alternatively, you can create the credential file yourself. By default, its location is at ~/.aws/credentials (C:\Users\USER_NAME\.aws\credentials for Windows users). Add the following lines in the file:
+
+	[default]
+	aws_access_key_id = YOUR_ACCESS_KEY
+	aws_secret_access_key = YOUR_SECRET_KEY
+
+You also need to set a default region. This can be done in the configuration file. By default, its location is at ~/.aws/config (C:\Users\USER_NAME\.aws\config for Windows users). Add the following lines in the file:
+
+	[default]
+	region=us-east-1
 
 See the [Security Credentials](http://aws.amazon.com/security-credentials) page
-for more information on getting your keys. For more information on configuring `boto3`,
+for more information on getting your keys. For more information on configuring boto3,
 check out the Quickstart section in the [developer guide](https://boto3.readthedocs.org/en/latest/guide/quickstart.html).
-```
 
-### Configuring the Variables
+### Configuring Script Variables
 
-A step by step series of examples that tell you have to get a development env running
+There are 3 variables you'll need to set within the Python script before running. These variables are:
 
-Say what the step will be
+Name of the S3 bucket where Athena will store the query history when running the script. This bucket will be created in the region where the script is executed if it doesn't currently exist. Example:
 
-```
-Give the example
-```
+	ATHENA_S3_BUCKET_NAME = "s3://athena-history-bucket-demo"
 
-And repeat
+Name of the Athena table to create for CloudTrail logs. This table will be created in the 'default' Athena database. Example:
 
-```
-until finished
-```
+	TABLE_NAME = "cloudtrail_logs"
 
-End with an example of getting some data out of the system or using it for a little demo
+Location of S3 bucket where CloudTrail logs are stored for your CloudTrail Lambda data events. You can find this location by viewing the CloudTrail trail and copying the S3 bucket where log files are delivered. This is in the format of s3://{BucketName}/AWSLogs/{AccountID}/. Example:
 
-## Running the tests
+	CLOUDTRAIL_S3_BUCKET_NAME = "s3://cloudtrail-logs-bucket/AWSLogs/123456789012/"
 
-Explain how to run the automated tests for this system
+## Running the Script
 
-### Break down into end to end tests
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
