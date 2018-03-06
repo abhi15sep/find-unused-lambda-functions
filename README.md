@@ -40,28 +40,19 @@ check out the Quickstart section in the [developer guide](https://boto3.readthed
 
 There are 3 variables you'll need to set within the Python script before running. These variables are:
 
-1. Name of the S3 bucket where Athena will store the query history when running the script. This bucket will be created in the region where the script is executed if it doesn't currently exist.
-> Example: ATHENA_S3_BUCKET_NAME = "s3://athena-history-bucket-demo"
+Name of the S3 bucket where Athena will store the query history when running the script. This bucket will be created in the region where the script is executed if it doesn't currently exist. Example:
 
-1. Name of the Athena table to create for CloudTrail logs. This table will be created in the 'default' Athena database.
-> Example: TABLE_NAME = "cloudtrail_logs"
+	ATHENA_S3_BUCKET_NAME = "s3://athena-history-bucket-demo"
 
-1. Location of S3 bucket where CloudTrail logs are stored for your CloudTrail Lambda data events. You can find this location by viewing the CloudTrail trail and copying the S3 bucket where log files are delivered. This is in the format of s3://{BucketName}/AWSLogs/{AccountID}/
-> Example: CLOUDTRAIL_S3_BUCKET_NAME = "s3://cloudtrail-logs-bucket/AWSLogs/123456789012/"
+Name of the Athena table to create for CloudTrail logs. This table will be created in the 'default' Athena database. Example:
 
-```
-Give the example
-```
+	TABLE_NAME = "cloudtrail_logs"
 
-And repeat
+Location of S3 bucket where CloudTrail logs are stored for your CloudTrail Lambda data events. You can find this location by viewing the CloudTrail trail and copying the S3 bucket where log files are delivered. This is in the format of s3://{BucketName}/AWSLogs/{AccountID}/. Example:
 
-```
-until finished
-```
+	CLOUDTRAIL_S3_BUCKET_NAME = "s3://cloudtrail-logs-bucket/AWSLogs/123456789012/"
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
+## Running the Script
 
 Explain how to run the automated tests for this system
 
