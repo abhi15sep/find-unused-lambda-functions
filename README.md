@@ -17,20 +17,20 @@ The script also requires that you have CloudTrail data events enabled for all La
 
 Before you can begin using Boto 3, you should set up authentication credentials. Credentials for your AWS account can be found in the IAM Console. You can create or use an existing user. Go to manage access keys and generate a new set of keys.
 
-If you have the AWS CLI installed, then you can use it to configure your credentials file:
+If you have the AWS CLI installed, then you can use it to configure your credentials file using the command:
 
 	aws configure
 
 Alternatively, you can create the credential file yourself. By default, its location is at ~/.aws/credentials (C:\Users\USER_NAME\.aws\credentials for Windows users). Add the following lines in the file:
 
-[default]
-aws_access_key_id = YOUR_ACCESS_KEY
-aws_secret_access_key = YOUR_SECRET_KEY
+	[default]
+	aws_access_key_id = YOUR_ACCESS_KEY
+	aws_secret_access_key = YOUR_SECRET_KEY
 
 You also need to set a default region. This can be done in the configuration file. By default, its location is at ~/.aws/config (C:\Users\USER_NAME\.aws\config for Windows users). Add the following lines in the file:
 
-[default]
-region=us-east-1
+	[default]
+	region=us-east-1
 
 See the [Security Credentials](http://aws.amazon.com/security-credentials) page
 for more information on getting your keys. For more information on configuring boto3,
