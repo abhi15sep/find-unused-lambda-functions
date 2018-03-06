@@ -1,13 +1,13 @@
 # find-unused-lambda-functions
-AWS Lambda lets you run code without provisioning or managing servers. You pay only for the compute time you consume - there is no charge when your code is not running. With Lambda, you can run code for virtually any type of application or backend service - all with zero administration. Just upload your code and Lambda takes care of everything required to run and scale your code with high availability. You can set up your code to automatically trigger from other AWS services or call it directly from any web or mobile app.
+AWS Lambda lets you run code without provisioning or managing servers. With Lambda, you can run code for virtually any type of application or backend service - all with zero administration. 
 
-Understanding which functions are being invoked and which are not can help you maintain an up-to-date Lambda environment and control Lambda costs by removing unneeded functions from production.
+Understanding which functions are being invoked and which are not can help you maintain an up-to-date Lambda environment and control Lambda costs by removing unused functions from production.
 
-This is a simple python script that uses Amazon Athena and AWS CloudTrail to list the Lambda functions that have not been invoked in the past 30 days. Running this script will create a run an Amazon Athena query on your CloudTrail data. You are charged for the number of bytes scanned by Amazon Athena, rounded up to the nearest megabyte, with a 10MB minimum per query. There are no charges for Data Definition Language (DDL) statements like CREATE/ALTER/DROP TABLE, statements for managing partitions, or failed queries. See [Athena pricing](https://aws.amazon.com/athena/pricing/) for pricing details and examples.
+This is a simple python script that uses Amazon Athena and AWS CloudTrail to list the Lambda functions that have not been invoked in the past 30 days. Running this script will create and run an Amazon Athena query on your CloudTrail data. You are charged for the number of bytes scanned by Amazon Athena, rounded up to the nearest megabyte, with a 10MB minimum per query. There are no charges for Data Definition Language (DDL) statements like CREATE/ALTER/DROP TABLE, statements for managing partitions, or failed queries. See [Athena pricing](https://aws.amazon.com/athena/pricing/) for pricing details and examples.
 
 ### Prerequisites
 
-This sample project depends on [boto3](https://aws.amazon.com/sdk-for-python/), the AWS SDK for Python, and requires Python 2.6.5+, 2.7, and 3.3+. You can install `boto3` using pip:
+This sample project depends on [boto3](https://aws.amazon.com/sdk-for-python/), the AWS SDK for Python, and requires Python 2.6.5+, 2.7, and 3.3+. You can install boto3 using pip:
 
     pip install boto3
 	
