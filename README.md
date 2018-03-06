@@ -5,15 +5,15 @@ Understanding which functions are being invoked and which are not can help you m
 
 This is a simple python script that uses Amazon Athena and AWS CloudTrail to list the Lambda functions that have not been invoked in the past 30 days. Running this script will create and run an Amazon Athena query on your CloudTrail data. You are charged for the number of bytes scanned by Amazon Athena, rounded up to the nearest megabyte, with a 10MB minimum per query. There are no charges for Data Definition Language (DDL) statements like CREATE/ALTER/DROP TABLE, statements for managing partitions, or failed queries. See [Athena pricing](https://aws.amazon.com/athena/pricing/) for pricing details and examples.
 
-### Prerequisites
+## Prerequisites
 
 This sample project depends on [boto3](https://aws.amazon.com/sdk-for-python/), the AWS SDK for Python, and requires Python 2.6.5+, 2.7, and 3.3+. You can install boto3 using pip:
 
     pip install boto3
 	
-The script also requires that you have CloudTrail data events enabled for all Lambda functions within your AWS account. The following blog "[Gain Visibility into the Execution of Your AWS Lambda functions with AWS CloudTrail](https://aws.amazon.com/blogs/mt/gain-visibility-into-the-execution-of-your-aws-lambda-functions-with-aws-cloudtrail/)" provides a step-by-step guide.
+The script also requires that you have AWS CloudTrail data events enabled for all Lambda functions within your AWS account. The following blog "[Gain Visibility into the Execution of Your AWS Lambda functions with AWS CloudTrail](https://aws.amazon.com/blogs/mt/gain-visibility-into-the-execution-of-your-aws-lambda-functions-with-aws-cloudtrail/)" provides a step-by-step guide. Last, your IAM user must have the [appropriate permissions](https://docs.aws.amazon.com/athena/latest/ug/access.html#managed-policies) to execute queries in Amazon Athena.
 
-### Basic Configuration
+### Boto3 Configuration
 
 Before you can begin using Boto 3, you should set up authentication credentials. Credentials for your AWS account can be found in the IAM Console. You can create or use an existing user. Go to manage access keys and generate a new set of keys.
 
@@ -36,7 +36,7 @@ See the [Security Credentials](http://aws.amazon.com/security-credentials) page
 for more information on getting your keys. For more information on configuring boto3,
 check out the Quickstart section in the [developer guide](https://boto3.readthedocs.org/en/latest/guide/quickstart.html).
 
-### Configuring Script Variables
+### Python Variables
 
 There are 3 variables you'll need to set within the Python script before running. These variables are:
 
