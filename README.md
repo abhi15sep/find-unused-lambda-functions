@@ -9,7 +9,13 @@ This is a simple python script that uses Amazon Athena and AWS CloudTrail to lis
 
 ### Boto3 Setup and Configuration
 
-This sample project depends on [boto3](https://aws.amazon.com/sdk-for-python/), the AWS SDK for Python, and requires Python 2.6.5+, 2.7, and 3.3+. You can install boto3 using pip:
+This sample project depends on [boto3](https://aws.amazon.com/sdk-for-python/), the AWS SDK for Python, and requires Python 2.6.5+, 2.7, and 3.3+. 
+
+To install Boto3 you can clone this repository and type:
+
+	pip install -r requirements.txt
+
+Or you can install boto3 using pip:
 
     pip install boto3
 	
