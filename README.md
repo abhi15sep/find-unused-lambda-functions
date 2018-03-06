@@ -38,9 +38,20 @@ check out the Quickstart section in the [developer guide](https://boto3.readthed
 
 ### Configuring Script Variables
 
-A step by step series of examples that tell you have to get a development env running
+There are 3 variables you'll need to set within the Python script before running. These variables are:
 
-Say what the step will be
+# S3 bucket where Athena will store query history
+# This bucket will be created in the region where the script is executed if it doesn't currently exist
+ATHENA_S3_BUCKET_NAME = "s3://athena-history-bucket-demo"
+
+# Athena table to create for CloudTrail logs
+# This table will be created in the 'default' Athena database
+TABLE_NAME = "cloudtrail_logs"
+
+# Location of S3 bucket where CloudTrail logs are stored
+# including CloudTrail Lambda data events
+# CLOUDTRAIL_S3_BUCKET_NAME = "s3://{BucketName}/AWSLogs/{AccountID}/"
+CLOUDTRAIL_S3_BUCKET_NAME = "s3://cloudtrail-logs-bucket/AWSLogs/123456789012/"
 
 ```
 Give the example
