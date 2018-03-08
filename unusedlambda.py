@@ -9,11 +9,9 @@ in the past 30 days, and print a list of those that are inactive. This allows yo
 understand if you have any Lambda functions not currently in use.
 
 The script assumes the following:
-1. You have CloudTrail Lambda data events enabled for all functions within
-your account
-2. You have permissions to Athena
+1. You have CloudTrail Lambda data events enabled for all functions within your account
+2. You have permissions to Athena and Lambda
 3. You have Python and Boto3 installed
-4. You have the AWS CLI installed with configuration set for region of interest
 '''
 
 # AWS region that you want to evaluate
