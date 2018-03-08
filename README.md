@@ -33,18 +33,17 @@ Alternatively, you can create the credential file yourself. By default, its loca
 	aws_access_key_id = YOUR_ACCESS_KEY
 	aws_secret_access_key = YOUR_SECRET_KEY
 
-You also need to set a default region. This can be done in the configuration file. By default, its location is at ~/.aws/config (C:\Users\USER_NAME\.aws\config for Windows users). Add the following lines in the file:
-
-	[default]
-	region=us-east-1
-
 See the [Security Credentials](http://aws.amazon.com/security-credentials) page
 for more information on getting your keys. For more information on configuring boto3,
 check out the Quickstart section in the [developer guide](https://boto3.readthedocs.org/en/latest/guide/quickstart.html).
 
 ### Python Variable Configuration
 
-There are 3 variables you'll need to set within the Python script before running. These variables are:
+There are 4 variables you'll need to set within the Python script before running. These variables are:
+
+The AWS region that you want to evaluate. Its important to note that the script will only work in regions where Athena is supported. Athena region availability can be found at [https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/). The region designation should be set as the region code. For example, US East (N. Virginia) is 'us-east-1'.
+
+	REGION = "us-east-1"
 
 Name of the S3 bucket where Athena will store the query history when running the script. This bucket will be created in the region where the script is executed if it doesn't currently exist. Example:
 
