@@ -32,7 +32,7 @@ TABLE_NAME = "cloudtrail_lambda_logs"
 # Location of S3 bucket where CloudTrail logs are stored
 # including CloudTrail Lambda data events
 # CLOUDTRAIL_S3_BUCKET_NAME = "s3://{BucketName}/AWSLogs/{AccountID}/"
-CLOUDTRAIL_S3_BUCKET_NAME = "s3://cloudtrail-logs-bucket/AWSLogs/123456789012/"
+CLOUDTRAIL_S3_BUCKET_NAME = "s3://bobtrailbucket/AWSLogs/341277845616/"
 
 CREATE_TABLE_QUERY_TEMPLATE = \
 """CREATE EXTERNAL TABLE {0} (
@@ -197,4 +197,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
