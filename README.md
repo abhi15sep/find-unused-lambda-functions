@@ -39,7 +39,7 @@ See the [Security Credentials](http://aws.amazon.com/security-credentials) page
 for more information on getting your keys. For more information on configuring boto3,
 check out the Quickstart section in the [developer guide](https://boto3.readthedocs.org/en/latest/guide/quickstart.html).
 
-*** AWS Permissions
+### AWS Permissions
 
 You’ll need to ensure that the IAM credentials that you are using above have the appropriate permissions to [list your Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-api-permissions-ref.html) and [execute Athena queries](https://docs.aws.amazon.com/athena/latest/ug/access.html#managed-policies).
 
